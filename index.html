@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UJIAN SKD</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Efek water bubble -->
+    <div class="water-bubble"></div>
+    <div class="water-bubble"></div>
+    <div class="water-bubble"></div>
+
+    <!-- Halaman Login -->
+    <div class="container" id="login-page">
+        <h1>UJIAN SKD</h1>
+        <div class="card">
+            <h2>Login Peserta</h2>
+            <input type="text" id="username" placeholder="Masukkan nama anda">
+            <input type="password" id="password" placeholder="Masukkan password">
+            <button onclick="login()">Masuk</button>
+            <p class="hint">* Password: <b>ctarsaskh</b></p>
+            <p class="hint">Tekan Enter setelah memasukkan password</p>
+        </div>
+    </div>
+
+    <!-- Halaman Petunjuk -->
+    <div class="container hidden" id="guide-page">
+        <div class="card">
+            <h2>Petunjuk Pengerjaan</h2>
+            <ul style="text-align: left; line-height: 1.7; color: var(--accent-light);">
+                <li>Bacalah soal dengan cermat sebelum menjawab.</li>
+                <li>Setiap soal memiliki lima pilihan jawaban.</li>
+                <li>Klik "Next" untuk ke soal berikutnya, dan "Back" untuk kembali.</li>
+                <li>Gunakan navigasi soal untuk berpindah cepat.</li>
+                <li>Setelah selesai, klik "Kumpulkan Jawaban".</li>
+            </ul>
+            <button onclick="startExam()">Mulai Ujian</button>
+        </div>
+    </div>
+
+    <!-- Halaman Soal -->
+    <div class="container hidden" id="exam-page">
+        <div class="exam-layout">
+            <div class="exam-content">
+                <div class="header">
+                    <h2 id="exam-title">UJIAN SKD</h2>
+                    <div class="timer" id="timer">90:00</div>
+                </div>
+                <div class="question-card">
+                    <div id="question-text"></div>
+                    <div id="options"></div>
+                    <div class="navigation">
+                        <button id="back-btn" onclick="prevQuestion()">Back</button>
+                        <button id="next-btn" onclick="nextQuestion()">Next</button>
+                        <button id="submit-btn" class="hidden" onclick="submitExam()">Kumpulkan Jawaban</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="exam-navigation">
+                <div class="navigation-panel">
+                    <h3>Navigasi Soal</h3>
+                    <div id="question-nav"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Halaman Hasil -->
+    <div class="container hidden" id="result-page">
+        <div class="card">
+            <div id="score"></div>
+            <div id="explanations"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
